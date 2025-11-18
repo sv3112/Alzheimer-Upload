@@ -278,6 +278,76 @@ else:
         
         st.markdown("#### 📊 Clinical Features")
         st.markdown("Please enter all required clinical measurements:")
+
+        # Define feature ranges and descriptions
+        feature_info = {
+            'MMSE': {
+                'min': 0, 'max': 30, 'step': 1,
+                'help': 'Mini-Mental State Examination (0-30). Lower scores indicate cognitive impairment.'
+            },
+            'FunctionalAssessment': {
+                'min': 0, 'max': 10, 'step': 1,
+                'help': 'Functional assessment score (0-10). Lower scores indicate greater impairment.'
+            },
+            'MemoryComplaints': {
+                'min': 0, 'max': 1, 'step': 1,
+                'help': 'Memory complaints: 0 = No, 1 = Yes'
+            },
+            'BehavioralProblems': {
+                'min': 0, 'max': 1, 'step': 1,
+                'help': 'Behavioral problems: 0 = No, 1 = Yes'
+            },
+            'ADL': {
+                'min': 0, 'max': 10, 'step': 1,
+                'help': 'Activities of Daily Living (0-10). Lower scores indicate greater impairment.'
+            },
+            'Disorientation': {
+                'min': 0, 'max': 1, 'step': 1,
+                'help': 'Disorientation: 0 = No, 1 = Yes'
+            },
+            'PersonalityChanges': {
+                'min': 0, 'max': 1, 'step': 1,
+                'help': 'Personality changes: 0 = No, 1 = Yes'
+            },
+            'DifficultyCompletingTasks': {
+                'min': 0, 'max': 1, 'step': 1,
+                'help': 'Difficulty completing tasks: 0 = No, 1 = Yes'
+            },
+            'Forgetfulness': {
+                'min': 0, 'max': 1, 'step': 1,
+                'help': 'Forgetfulness: 0 = No, 1 = Yes'
+            },
+            'SleepQuality': {
+                'min': 4, 'max': 10, 'step': 1,
+                'help': 'Sleep quality score (4-10). Higher scores indicate better sleep.'
+            }
+        }
+        
+        # Create input fields for each feature in top_features
+        feature_values = {}
+        
+        # Organize features into rows of 3 columns each
+        num_cols = 3
+        feature_list = list(top_features)
+        
+        for i in range(0, len(feature_list), num_cols):
+            cols = st.columns(num_cols)
+            for j, col in enumerate(cols):
+                if i + j < len(feature_list):
+                    feature = feature_list[i + j]
+                    with col:
+                        # Get feature info or use defaults
+                        info = feature_info.get(feature, {'min': 0, 'max': 100, 'step': 1, 'help': f'Enter value for {feature}'})
+                        
+                        # Create input with proper range and help text
+                        feature_values[feature] = st.number_input(
+                            f"{feature} ({info['min']}-{info['max']})",
+                            min_value=info['min'],
+                            max_value=info['max'],
+                            value=info['min'],
+                            step=info['step'],
+                            help=info['help']
+                        )
         
         # Create input fields for each feature in top_features
         feature_values = {}
