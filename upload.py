@@ -442,12 +442,12 @@ def create_navigation_section():
         with subcol1:
             if st.button("🏠 Home", key="main_upload_btn", use_container_width=True, 
                         help="Return to home page"):
-                st.switch_page("homepage.py")
+                st.switch_page("pages/homepage.py")
         
         with subcol2:
             if st.button("📊 Clinical Dashboard", key="main_dashboard_btn", use_container_width=True,
                         help="View existing predictions and analytics dashboard"):
-                st.switch_page("ClinicalDashboardPage.py")
+                st.switch_page("pages/ClinicalDashboardPage.py")
 
 
 create_navigation_section()
