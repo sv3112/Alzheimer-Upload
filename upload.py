@@ -349,27 +349,7 @@ else:
                             help=info['help']
                         )
         
-        # Create input fields for each feature in top_features
-        feature_values = {}
         
-        # Organize features into rows of 3 columns each
-        num_cols = 3
-        feature_list = list(top_features)
-        
-        for i in range(0, len(feature_list), num_cols):
-            cols = st.columns(num_cols)
-            for j, col in enumerate(cols):
-                if i + j < len(feature_list):
-                    feature = feature_list[i + j]
-                    with col:
-                        # Create appropriate input based on feature type
-                        feature_values[feature] = st.number_input(
-                            feature,
-                            value=0,
-                            step=1,
-                            
-                            help=f"Enter value for {feature}"
-                        )
         
         st.markdown("---")
         submitted = st.form_submit_button("🧠 Analyze Patient Data", use_container_width=True, type="primary")
