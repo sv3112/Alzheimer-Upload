@@ -447,6 +447,7 @@ def create_navigation_section():
         with subcol2:
             if st.button("📊 Clinical Dashboard", key="main_dashboard_btn", use_container_width=True,
                         help="View existing predictions and analytics dashboard"):
-                st.switch_page("pages/ClinicalDashboardPage.py")
+                st.switch_page("ClinicalDashboardPage")
+
 
 create_navigation_section()
