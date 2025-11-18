@@ -69,7 +69,7 @@ MODEL_DIR.mkdir(exist_ok=True, parents=True)
 def download_models_from_github():
     """Download model files from GitHub repository if they don't exist locally"""
     
-    GITHUB_RAW_URL = "https://raw.githubusercontent.com/sv3112/Alzheimer_AI_Diagnosis_Dashboard/main/alzheimers_model_files"
+    GITHUB_RAW_URL = "https://raw.githubusercontent.com/sv3112/Alzheimer-Upload/alzheimers_model_files"
     
     MODEL_FILES = [
         'alzheimers_best_model.pkl',
@@ -111,7 +111,7 @@ def download_models_from_github():
 def download_utilities_from_github():
     """Download utility files from GitHub repository if they don't exist locally"""
     
-    GITHUB_RAW_URL = "https://raw.githubusercontent.com/sv3112/Alzheimer_AI_Diagnosis_Dashboard/main"
+    GITHUB_RAW_URL = "https://raw.githubusercontent.com/sv3112/Alzheimer-Upload"
     
     UTILITY_FILES = [
         'shap_utils.py'
